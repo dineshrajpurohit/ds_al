@@ -59,14 +59,48 @@ class Linked_List:
                 prev_pointer.next = node
         self.count += 1
 
+# Removing nodes
+    def remove_front(self):
+        if self.root is None:
+            return
+        next_node = self.root.next
+        self.root = next_node
+        self.count -= 1
+
+    def remove_end(self):
+        if self.root is None:
+            return
+        pointer = self.root
+        prev_pointer = None
+        while pointer.next is not None:
+            prev_pointer = pointer
+            pointer = pointer.next
+        if prev_pointer is None:
+            self.root = None
+        else:
+            prev_pointer.next = None
+        self.count -= 1
+
+    def remove(self, index=0):
+        if self.root is None:
+            return
+        if index == 0:
+            self.root = None
+
+
     def __repr__(self):
         return "Total Nodes: {} Root: {}".format(self.count, self.root)
 
 
 ll = Linked_List()
+print "*** Removing from end ***"
+ll.remove_end()
 print ll
 node1 = Node("A", None)
 ll.insert_front(node1)
+print ll
+print "*** Removing from end ***"
+ll.remove_end()
 print ll
 node2 = Node("B", None)
 node3 = Node('C')
@@ -76,7 +110,18 @@ ll.insert_end(node3)
 print ll
 ll.insert_end(Node("k"))
 print ll
+print "*** Removing from front ***"
+ll.remove_front()
+print ll
+ll.insert_front(Node("M"))
+print ll
 ll.insert(Node("P"), index=2)
 print ll
 ll.insert(Node("X"))
 print ll
+print "*** Removing from end ***"
+ll.remove_end()
+print ll
+ll.insert(Node("L"), 3)
+print ll
+ll.remove()
