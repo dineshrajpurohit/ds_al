@@ -19,7 +19,7 @@ class Linked_List:
     def size(self):
         return self.count
 
-    # Insertions
+# Insertions
     def insert_front(self, node):
         if self.root is None:
             self.root = node
@@ -37,6 +37,28 @@ class Linked_List:
         pointer.next = node
         self.count += 1
 
+    def insert(self, node, index=0):
+        if self.root is None:
+            self.root = node
+        elif index == 0:
+            node.next = self.root
+            self.root = node
+        elif index >= self.count:
+            print "Index out of bound"
+            return
+        else:
+            prev_pointer = None
+            pointer = self.root
+            counter = 0
+            while pointer.next is not None and counter < index:
+                prev_pointer = pointer
+                pointer = pointer.next
+                counter += 1
+            if index == counter:
+                node.next = prev_pointer.next
+                prev_pointer.next = node
+        self.count += 1
+
     def __repr__(self):
         return "Total Nodes: {} Root: {}".format(self.count, self.root)
 
@@ -46,9 +68,15 @@ print ll
 node1 = Node("A", None)
 ll.insert_front(node1)
 print ll
-node2 = Node("B")
+node2 = Node("B", None)
+node3 = Node('C')
 ll.insert_front(node2)
 print ll
-node3 = Node("C")
 ll.insert_end(node3)
+print ll
+ll.insert_end(Node("k"))
+print ll
+ll.insert(Node("P"), index=2)
+print ll
+ll.insert(Node("X"))
 print ll
