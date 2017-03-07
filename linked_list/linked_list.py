@@ -82,11 +82,47 @@ class Linked_List:
         self.count -= 1
 
     def remove(self, index=0):
-        if self.root is None:
+        if self.root is None or index >= self.count:
+            print "Index out of bound"
             return
         if index == 0:
-            self.root = None
+            self.root = self.root.next
+            self.count -= 1
+        else:
+            pointer = self.root
+            pointer_prev = None
+            counter = 0
+            while pointer.next is not None and counter < index:
+                counter += 1
+                pointer_prev = pointer
+                pointer = pointer.next
+            if counter > index:
+                return None
+            else:
+                pointer_prev.next = pointer.next
+                self.count -= 1
 
+
+    def remove_item(self, item):
+        item_index = self.find(item)
+        if item_index is not None:
+            self.remove(item_index)
+
+    # returns the index where the item is found
+    def find(self, item):
+        if self.root is None:
+            return None
+        if self.root.item == item:
+            return 0
+        pointer = self.root
+        counter = 0
+        while pointer.next is not None:
+            pointer = pointer.next
+            counter += 1
+            if pointer.item == item:
+                return counter
+        else:
+            return None
 
     def __repr__(self):
         return "Total Nodes: {} Root: {}".format(self.count, self.root)
@@ -125,3 +161,17 @@ print ll
 ll.insert(Node("L"), 3)
 print ll
 ll.remove()
+print "Finding L in the List:"
+print ll.find("L")
+print "Finding non existing Node item: G"
+print ll.find("G")
+print "Removing from index 2"
+print ll
+print ll.remove(2)
+print ll
+print "Removing from index 0"
+print ll.remove(0)
+print ll
+print "Removing item P"
+ll.remove_item("P")
+print ll
