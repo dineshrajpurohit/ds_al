@@ -63,29 +63,37 @@ class Linked_List:
     def remove_front(self):
         if self.root is None:
             return
+        remove_node = self.root
         next_node = self.root.next
         self.root = next_node
         self.count -= 1
+        return remove_node
 
     def remove_end(self):
         if self.root is None:
             return
         pointer = self.root
         prev_pointer = None
+        remove_node = None
         while pointer.next is not None:
             prev_pointer = pointer
             pointer = pointer.next
         if prev_pointer is None:
+            remove_node = self.root
             self.root = None
         else:
+            remove_node = prev_pointer
             prev_pointer.next = None
         self.count -= 1
+        return remove_node
 
     def remove(self, index=0):
+        remove_node = None
         if self.root is None or index >= self.count:
             print "Index out of bound"
             return
         if index == 0:
+            remove_node = self.root
             self.root = self.root.next
             self.count -= 1
         else:
@@ -99,8 +107,10 @@ class Linked_List:
             if counter > index:
                 return None
             else:
+                remove_node = pointer_prev
                 pointer_prev.next = pointer.next
                 self.count -= 1
+            return remove_node
 
 
     def remove_item(self, item):
@@ -175,3 +185,4 @@ print ll
 print "Removing item P"
 ll.remove_item("P")
 print ll
+print ll.count
