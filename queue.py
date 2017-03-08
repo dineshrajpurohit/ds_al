@@ -1,20 +1,45 @@
-from linked_list import Linked_List
+from linked_list import Linked_List, Node
 
 class Queue(Linked_List):
 
     def __init__(self):
         Linked_List.__init__(self)
 
-    def enqueue(self):
-        pass
+    def enqueue(self, item):
+        node = Node(item)
+        self.insert_front(node)
 
     def dequeue(self):
-        pass
+        return self.remove_end()
 
     def is_empty(self):
-        pass
+        return self.count == 0
 
     def size(self):
-        pass
+        return self.count
 
-
+print "\n\n QUEUE TESTING"
+queue = Queue()
+print "Queue Empty?", queue.is_empty()
+queue.enqueue("A")
+queue.enqueue("B")
+queue.enqueue("C")
+print "Queue Size:", queue.size()
+print queue
+print "DEQUEUEING 1"
+print queue.dequeue()
+print queue
+print "Queue Size:", queue.size()
+print "DEQUEUEING 2"
+print queue.dequeue()
+print queue
+print "Queue Size:", queue.size()
+print "Queue Empty?", queue.is_empty()
+print "DEQUEUEING 3"
+print queue.dequeue()
+print queue
+print "Queue Size:", queue.size()
+print "Queue Empty?", queue.is_empty()
+print queue
+print "DEQUEUEING 4"
+print queue.dequeue()
