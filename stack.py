@@ -34,7 +34,7 @@ st.push("C")
 print "Stack uptill now"
 print st
 print "Popping from stack"
-print st.pop().item
+print st.pop()
 print "Top of the stack"
 print st
 print "Stack Size"

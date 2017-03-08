@@ -67,7 +67,7 @@ class Linked_List:
         next_node = self.root.next
         self.root = next_node
         self.count -= 1
-        return remove_node
+        return remove_node.item
 
     def remove_end(self):
         if self.root is None:
@@ -82,10 +82,10 @@ class Linked_List:
             remove_node = self.root
             self.root = None
         else:
-            remove_node = prev_pointer
+            remove_node = pointer
             prev_pointer.next = None
         self.count -= 1
-        return remove_node
+        return remove_node.item
 
     def remove(self, index=0):
         remove_node = None
@@ -110,13 +110,13 @@ class Linked_List:
                 remove_node = pointer_prev
                 pointer_prev.next = pointer.next
                 self.count -= 1
-            return remove_node
+            return remove_node.item
 
 
     def remove_item(self, item):
         item_index = self.find(item)
         if item_index is not None:
-            self.remove(item_index)
+            return self.remove(item_index)
 
     # returns the index where the item is found
     def find(self, item):
