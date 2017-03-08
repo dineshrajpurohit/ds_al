@@ -18,6 +18,9 @@ class Stack(Linked_List):
     def size(self):
         return self.count
 
+    def is_empty(self):
+        return self.count == 0
+
 
 print "Creating a new stack"
 st = Stack()
@@ -36,3 +39,9 @@ print "Top of the stack"
 print st
 print "Stack Size"
 print st.size()
+print st.is_empty()
+print st.pop()
+print st.is_empty()
+print st.pop()
+print st.is_empty()
+print st.pop()
