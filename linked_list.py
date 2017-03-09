@@ -138,51 +138,55 @@ class Linked_List:
         return "Total Nodes: {} Root: {}".format(self.count, self.root)
 
 
-ll = Linked_List()
-print "*** Removing from end ***"
-ll.remove_end()
-print ll
-node1 = Node("A", None)
-ll.insert_front(node1)
-print ll
-print "*** Removing from end ***"
-ll.remove_end()
-print ll
-node2 = Node("B", None)
-node3 = Node('C')
-ll.insert_front(node2)
-print ll
-ll.insert_end(node3)
-print ll
-ll.insert_end(Node("k"))
-print ll
-print "*** Removing from front ***"
-ll.remove_front()
-print ll
-ll.insert_front(Node("M"))
-print ll
-ll.insert(Node("P"), index=2)
-print ll
-ll.insert(Node("X"))
-print ll
-print "*** Removing from end ***"
-ll.remove_end()
-print ll
-ll.insert(Node("L"), 3)
-print ll
-ll.remove()
-print "Finding L in the List:"
-print ll.find("L")
-print "Finding non existing Node item: G"
-print ll.find("G")
-print "Removing from index 2"
-print ll
-print ll.remove(2)
-print ll
-print "Removing from index 0"
-print ll.remove(0)
-print ll
-print "Removing item P"
-ll.remove_item("P")
-print ll
-print ll.count
+def test_linked_list():
+    ll = Linked_List()
+    print "*** Removing from end ***"
+    ll.remove_end()
+    print ll
+    node1 = Node("A", None)
+    ll.insert_front(node1)
+    print ll
+    print "*** Removing from end ***"
+    ll.remove_end()
+    print ll
+    node2 = Node("B", None)
+    node3 = Node('C')
+    ll.insert_front(node2)
+    print ll
+    ll.insert_end(node3)
+    print ll
+    ll.insert_end(Node("k"))
+    print ll
+    print "*** Removing from front ***"
+    ll.remove_front()
+    print ll
+    ll.insert_front(Node("M"))
+    print ll
+    ll.insert(Node("P"), index=2)
+    print ll
+    ll.insert(Node("X"))
+    print ll
+    print "*** Removing from end ***"
+    ll.remove_end()
+    print ll
+    ll.insert(Node("L"), 3)
+    print ll
+    ll.remove()
+    print "Finding L in the List:"
+    print ll.find("L")
+    print "Finding non existing Node item: G"
+    print ll.find("G")
+    print "Removing from index 2"
+    print ll
+    print ll.remove(2)
+    print ll
+    print "Removing from index 0"
+    print ll.remove(0)
+    print ll
+    print "Removing item P"
+    ll.remove_item("P")
+    print ll
+    print ll.count
+
+if __name__ == '__main__':
+    test_linked_list()

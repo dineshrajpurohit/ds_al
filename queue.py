@@ -1,5 +1,6 @@
 from linked_list import Linked_List, Node
 
+
 class Queue(Linked_List):
 
     def __init__(self):
@@ -18,28 +19,33 @@ class Queue(Linked_List):
     def size(self):
         return self.count
 
-print "\n\n QUEUE TESTING"
-queue = Queue()
-print "Queue Empty?", queue.is_empty()
-queue.enqueue("A")
-queue.enqueue("B")
-queue.enqueue("C")
-print "Queue Size:", queue.size()
-print queue
-print "DEQUEUEING 1"
-print queue.dequeue()
-print queue
-print "Queue Size:", queue.size()
-print "DEQUEUEING 2"
-print queue.dequeue()
-print queue
-print "Queue Size:", queue.size()
-print "Queue Empty?", queue.is_empty()
-print "DEQUEUEING 3"
-print queue.dequeue()
-print queue
-print "Queue Size:", queue.size()
-print "Queue Empty?", queue.is_empty()
-print queue
-print "DEQUEUEING 4"
-print queue.dequeue()
+
+def test_queue():
+    print "\n\n QUEUE TESTING"
+    queue = Queue()
+    print "Queue Empty?", queue.is_empty()
+    queue.enqueue("A")
+    queue.enqueue("B")
+    queue.enqueue("C")
+    print "Queue Size:", queue.size()
+    print queue
+    print "DEQUEUEING 1"
+    print queue.dequeue()
+    print queue
+    print "Queue Size:", queue.size()
+    print "DEQUEUEING 2"
+    print queue.dequeue()
+    print queue
+    print "Queue Size:", queue.size()
+    print "Queue Empty?", queue.is_empty()
+    print "DEQUEUEING 3"
+    print queue.dequeue()
+    print queue
+    print "Queue Size:", queue.size()
+    print "Queue Empty?", queue.is_empty()
+    print queue
+    print "DEQUEUEING 4"
+    print queue.dequeue()
+
+if __name__ == '__main__':
+    test_queue()
