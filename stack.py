@@ -1,5 +1,6 @@
 from linked_list import Linked_List, Node
 
+
 class Stack(Linked_List):
 
     def __init__(self):
