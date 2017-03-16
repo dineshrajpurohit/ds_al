@@ -11,7 +11,8 @@ class Stack(Linked_List):
         self.insert_front(node)
 
     def peek(self):
-        return self.root
+        if self.root is not None:
+            return self.root.item
 
     def pop(self):
         return self.remove_front()
