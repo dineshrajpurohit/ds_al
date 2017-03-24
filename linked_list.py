@@ -107,11 +107,10 @@ class Linked_List:
             if counter > index:
                 return None
             else:
-                remove_node = pointer_prev
+                remove_node = pointer
                 pointer_prev.next = pointer.next
                 self.count -= 1
             return remove_node.item
-
 
     def remove_item(self, item):
         item_index = self.find(item)
