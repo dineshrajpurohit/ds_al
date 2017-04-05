@@ -41,10 +41,12 @@ class Linked_List:
     def insert(self, node, index=0):
         if self.root is None:
             self.root = node
+            self.count = 1
         elif index == 0:
-            node.next = self.root
-            self.root = node
-        elif index >= self.count:
+            self.insert_front(node)
+        elif index == self.count:
+            self.insert_end(node)
+        elif index > self.count:
             print("Index out of bound")
             return
         else:
@@ -58,7 +60,7 @@ class Linked_List:
             if index == counter:
                 node.next = prev_pointer.next
                 prev_pointer.next = node
-        self.count += 1
+            self.count += 1
 
 # Removing nodes
     def remove_front(self):
@@ -185,6 +187,18 @@ def test_linked_list():
     print(ll)
     print("Removing item P")
     ll.remove_item("P")
+    print(ll)
+    print("Insert T first: index=0")
+    ll.insert(Node("T"), 0)
+    print(ll)
+    print("Insert Z last: index=", ll.count)
+    ll.insert(Node("Z"), ll.count)
+    print(ll)
+    print("Insert I in between: index=3")
+    ll.insert(Node("I"), 3)
+    print(ll)
+    print("Insert U out of bound: index=100")
+    ll.insert(Node("U"), 100)
     print(ll)
     print(ll.count)
 

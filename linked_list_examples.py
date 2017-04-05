@@ -65,7 +65,7 @@ def insert_after(linked_list, node1, node2):
     the node after the found node
     """
     if node1.item is not None and node2.item is not None:
-        found = linked_list.find(node1)
+        found = linked_list.find(node1.item)
         if found is not None:
             linked_list.insert(node2, found + 1)
 
@@ -93,6 +93,12 @@ def test_linked_list_examples():
     remove_after(ll, Node("C"))
     print(ll)
     print("Removing next Node to Node C")
+    print(ll)
+    print("Inserting node L after C")
+    insert_after(ll, Node("C"), Node("L"))
+    print(ll)
+    print("Inserting node U after B")
+    insert_after(ll, Node("B"), Node("U"))
     print(ll)
 
 
