@@ -70,6 +70,17 @@ def insert_after(linked_list, node1, node2):
             linked_list.insert(node2, found + 1)
 
 
+def remove(linked_list, item):
+    """Excerside 1.3.26 Remove function to remove all node with the item.
+
+    we can utilize the linked list find method along with remove to
+    remove all occurence of the item"""
+    item_location = linked_list.find(item)
+    while item_location is not None:
+        linked_list.remove(item_location)
+        item_location = linked_list.find(item)
+
+
 def test_linked_list_examples():
     """Testing Linkedlist examples."""
     delete(3)
@@ -99,6 +110,13 @@ def test_linked_list_examples():
     print(ll)
     print("Inserting node U after B")
     insert_after(ll, Node("B"), Node("U"))
+    print(ll)
+    ll.insert_front(Node('A'))
+    print(ll)
+    ll.insert(Node('A'), 3)
+    print(ll)
+    print("Removing all occurance of 'A' from the linked_list")
+    remove(ll, 'A')
     print(ll)
 
 
