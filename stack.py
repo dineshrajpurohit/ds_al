@@ -1,3 +1,7 @@
+"""Implementation of stack using Linked List."""
+
+
+from __future__ import print_function
 from linked_list import Linked_List, Node
 
 
@@ -25,29 +29,29 @@ class Stack(Linked_List):
 
 
 def test_stack():
-    print "Creating a new stack"
+    print("Creating a new stack")
     st = Stack()
-    print "Adding A to the stack"
+    print("Adding A to the stack")
     st.push("A")
-    print "Adding B to the stack"
+    print("Adding B to the stack")
     st.push("B")
-    print "Top of the stack: ", st.peek()
-    print "Adding C to the stack"
+    print("Top of the stack: ", st.peek())
+    print("Adding C to the stack")
     st.push("C")
-    print "Stack uptill now"
-    print st
-    print "Popping from stack"
-    print st.pop()
-    print "Top of the stack"
-    print st
-    print "Stack Size"
-    print st.size()
-    print st.is_empty()
-    print st.pop()
-    print st.is_empty()
-    print st.pop()
-    print st.is_empty()
-    print st.pop()
+    print("Stack uptill now")
+    print(st)
+    print("Popping from stack")
+    print(st.pop())
+    print("Top of the stack")
+    print(st)
+    print("Stack Size")
+    print(st.size())
+    print(st.is_empty())
+    print(st.pop())
+    print(st.is_empty())
+    print(st.pop())
+    print(st.is_empty())
+    print(st.pop())
 
 if __name__ == '__main__':
     test_stack()
