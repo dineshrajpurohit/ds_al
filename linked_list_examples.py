@@ -6,6 +6,7 @@ Algorithms 4th edition by Robert Sedgewick and Kevin Wayne
 
 
 from linked_list import Linked_List, Node
+import random
 
 
 def delete(k):
@@ -81,6 +82,30 @@ def remove(linked_list, item):
         item_location = linked_list.find(item)
 
 
+def max(linked_list):
+    """Excercise 1.3.27 Find max in linked list."""
+    head = linked_list.root
+    if head is None:
+        return
+    current_node = head
+    max = 0
+    while current_node is not None:
+        if current_node.item > max:
+            max = current_node.item
+        current_node = current_node.next
+    return max
+
+
+def max_recur(head, max):
+    """Excercise 1.3.28 Find max in linked list recursively"""
+    if head is None:
+        return max
+    if head.item > max:
+        max = head.item
+    head = head.next
+    return max_recur(head, max)
+
+
 def test_linked_list_examples():
     """Testing Linkedlist examples."""
     delete(3)
@@ -118,6 +143,13 @@ def test_linked_list_examples():
     print("Removing all occurance of 'A' from the linked_list")
     remove(ll, 'A')
     print(ll)
+    ll_nums = Linked_List()
+    for _ in range(20):
+        rand_num = random.randrange(1, 100)
+        ll_nums.insert_front(Node(rand_num))
+    print(ll_nums)
+    print('MAX: ', max(ll_nums))
+    print('MAX Recur: ', max_recur(ll_nums.root, 0))
 
 
 if __name__ == "__main__":
