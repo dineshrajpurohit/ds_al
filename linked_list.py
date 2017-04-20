@@ -33,9 +33,10 @@ class Linked_List:
         pointer = self.root
         if pointer is None:
             self.root = node
-        while pointer.next  is not None:
-            pointer = pointer.next
-        pointer.next = node
+        else:
+            while pointer.next  is not None:
+                pointer = pointer.next
+            pointer.next = node
         self.count += 1
 
     def insert(self, node, index=0):

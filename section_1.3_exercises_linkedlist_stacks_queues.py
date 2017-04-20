@@ -319,6 +319,26 @@ def max_recur(head, max):
     return max_recur(head, max)
 
 
+def queue_with_circular_linked_list():
+    """Excercise 1.3.29 Create an implementation of a Queue using a
+        circular linked list."""
+    pass
+
+
+def reverse_linked_list(head):
+    """Excercise 1.3.30 Destructively reverse a linked list."""
+    linked_list_rev = Linked_List()
+    stack = Stack()
+    current_node = head
+    while current_node is not None:
+        stack.push(current_node.item)
+        current_node = current_node.next
+    while not stack.is_empty():
+        item = stack.pop()
+        linked_list_rev.insert_end(Node(item))
+    return linked_list_rev.root
+
+
 def test_stack_examples():
     """Testing Stack Examples."""
     print("Output string from stack (reverser)")
@@ -404,7 +424,12 @@ def test_linked_list_examples():
     print(ll_nums)
     print('MAX: ', max(ll_nums))
     print('MAX Recur: ', max_recur(ll_nums.root, 0))
-
+    print("\n")
+    print("Destructively reverse a linked list")
+    print("Current Linked list")
+    print(ll_nums)
+    print("Reverse linked list")
+    print(reverse_linked_list(ll_nums.root))
 
 if __name__ == '__main__':
     test_stack_examples()
