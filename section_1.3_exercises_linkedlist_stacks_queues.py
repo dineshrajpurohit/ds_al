@@ -10,6 +10,7 @@ import random
 from linked_list import Linked_List, Node
 from stack import Stack
 from queue import Queue
+from steque import Steque
 
 
 def output_string_from_stack(input_str):
@@ -326,7 +327,7 @@ def queue_with_circular_linked_list():
 
 
 def reverse_linked_list(head):
-    """Excercise 1.3.30 Destructively reverse a linked list."""
+    """Excercise 1.3.30 reverse a linked list."""
     linked_list_rev = Linked_List()
     stack = Stack()
     current_node = head
@@ -337,6 +338,19 @@ def reverse_linked_list(head):
         item = stack.pop()
         linked_list_rev.insert_end(Node(item))
     return linked_list_rev.root
+
+
+def reverse_linked_list_recursive(head):
+    """Excercise 1.3.30 Recursively reverese a linked list."""
+    if head is None:
+        return
+    if head.next is None:
+        return head
+    second = head.next
+    rest = reverse_linked_list_recursive(second)
+    second.next = head
+    head.next = None
+    return rest
 
 
 def test_stack_examples():
@@ -430,8 +444,11 @@ def test_linked_list_examples():
     print(ll_nums)
     print("Reverse linked list")
     print(reverse_linked_list(ll_nums.root))
+    print("Reverse linked list recursively")
+    print(reverse_linked_list_recursive((ll_nums.root)))
+
 
 if __name__ == '__main__':
     test_stack_examples()
-    test_queue_example()
+    #test_queue_example()
     test_linked_list_examples()
